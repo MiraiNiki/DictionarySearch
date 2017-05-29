@@ -21,7 +21,7 @@ class MakeDictionary {
             int point = 0;
             while ((str = br.readLine()) != null){
                 point = calcPoint(str);
-                dictWord[i] = new Word(str, point);
+                dictWord[i] = new Word(str.toUpperCase(), point);
                 i++;
             }
             br.close();
@@ -37,18 +37,18 @@ class MakeDictionary {
      */
     public static int calcPoint(String str){
         String upperStr = str.toUpperCase();
-        int point = 0;
+        int point = 1;
         for(int i = 0; i < upperStr.length(); i++){
             char c = upperStr.charAt(i);
-            if(c == 'J' || c == 'K' || c == 'X' || c == 'Z' || c == 'Q'){
+            if(c == 'J' || c == 'K' || c == 'X' || c == 'Z'){
                 point = point + 3;
-            }else if(c == 'C' || c == 'F' || c == 'H' || c == 'L' || c == 'M' || c == 'P' || c == 'V' || c == 'W' || c == 'Y'){
+            }else if(c == 'C' || c == 'F' || c == 'H' || c == 'L' || c == 'M' || c == 'P' || c == 'V' || c == 'W' || c == 'Y' || c == 'Q'){
                 point = point + 2;
             }else{
                 point++;
             }
         }
-        return point;
+        return point*point;
     }
 
     public static void main(String[] args){

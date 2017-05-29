@@ -1,2 +1,4 @@
 # classファイルは要らない
 *.class
+# Dictionaryファイルは要らない
+/Dictionary.txt
