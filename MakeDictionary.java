@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.util.Arrays;
+import java.util.Comparator;
 
 //点数順にソートするプログラム
 class MakeDictionary {
@@ -51,8 +53,14 @@ class MakeDictionary {
 
     public static void main(String[] args){
         readFile("Dictionary.txt");
-        for(Word word : dictWord){
-            System.out.println("name: " + word.getName() + " point: " + word.getPoint());
+        Arrays.sort(dictWord, new Comparator<Word>(){
+                public int compare(Word w1, Word w2) {
+                    return w1.getPoint() - w2.getPoint();
+                }
+            });
+        for(int i = 72411; i >= 0; i--){
+            //System.out.println("name: " + dictWord[i].getName() + " point: " + dictWord[i].getPoint());
+            System.out.println(dictWord[i].getName());
         }
     }
 
